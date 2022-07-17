@@ -20,7 +20,7 @@ class UpdateProductService {
     const productsRepository = getCustomRepository(ProductRepository);
     const product = await productsRepository.findOne(id); //findOne método do typeORM que retorna um produto
     if (!product) {
-      throw new Error('Product not found');
+      throw new AppError('Product not found');
     }
 
     const productExists = await productsRepository.findByName(name);
